@@ -6,7 +6,8 @@ function <%- $$.convertUrl(o.path) %> (opts) {
     return instance({
         method: '<%- o.method %>',
         url: '<%- o.path %>',
-        opts: opts
+        opts: opts,
+        res: <%- o.response %>
     });
 }
 
