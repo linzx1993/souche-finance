@@ -1,8 +1,7 @@
 /* eslint-disable */
 import instance from './instance';
 
-<% _.forEach(data.list, function(o){ %>
-/** <%- o.summary %> */
+<% _.forEach(data.list, function(o){ %> /** <%- o.summary %> */
 export function <%- $$.convertUrl(o.path) %> (opts) {
     return instance({
         method: '<%- o.method %>',
@@ -11,4 +10,5 @@ export function <%- $$.convertUrl(o.path) %> (opts) {
         res: <%- o.responseMessages[0].responseModel %>
     });
 }
+
 <% }) %>
