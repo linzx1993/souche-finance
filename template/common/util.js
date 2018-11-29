@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create();
 
-function createAPI(baseURL) {
+function finance(baseURL) {
     return function (conf) {
         conf = conf || {};
         return instance(Object.assign({}, {
@@ -14,5 +14,5 @@ function createAPI(baseURL) {
 }
 
 export {
-    createAPI
+    finance
 };
