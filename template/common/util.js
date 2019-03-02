@@ -1,15 +1,16 @@
-import axios from 'axios';
+import { SRNStore } from '@souche-f2e/srn-framework';
 
-const instance = axios.create();
+const instance = new SRNStore().__fetch;
 
 function createAPI(baseURL) {
+    let host = typeof baseURL === 'function' ? baseURL() : baseURL;
     return function (conf) {
         conf = conf || {};
-        return instance(Object.assign({}, {
-            url: conf.url,
-            baseURL: baseURL,
-            method: conf.method
-        }, conf.opts));
+        return instance({
+            url: `${host}/${conf.url}`,
+            method: conf.method,
+            data: conf.opts
+        });
     };
 }
 

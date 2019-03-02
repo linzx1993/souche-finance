@@ -1,11 +1,8 @@
-import Util from '<%- $$.relative("util") %>';
+import { SRNConfig } from '@souche-f2e/srn-framework';
+import Util from '../util.js';
 
 const baseUrl = function() {
-    return {
-        development: '',
-        prepub: '',
-        production: ''
-    }[process.env.NODE_ENV];
+    return SRNConfig.baseUrl;
 };
 
-export default Util.finance(baseUrl);
+export default Util.createAPI(baseUrl);
