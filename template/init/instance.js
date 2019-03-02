@@ -8,4 +8,4 @@ const baseUrl = function() {
     }[process.env.NODE_ENV];
 };
 
-export default Util.finance(baseUrl);
+export default Util.createAPI(baseUrl);
