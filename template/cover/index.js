@@ -1,5 +1,8 @@
 /* eslint-disable */
-import instance from './instance';
+import Util from '../util';
+
+let baseUrl = process.env.VUE_APP_<%- $$.convertUrl(data.moduleName) %>_API_URL;
+let instance = Util.ajax(baseUrl);
 
 <% _.forEach(data.list, function(o){ %> /** <%- o.summary %> */
 export function <%- $$.convertUrl(o.path) %> (opts) {
