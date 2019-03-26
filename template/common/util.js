@@ -1,18 +1,23 @@
-import axios from 'axios';
+/**
+ * @file 封装请求
+ */
+import Http from '@souche-f2e/http-request';
 
-const instance = axios.create();
+const ajax = (url, params = {}) => {
+    params.url = url;
+    params.method = params.method || 'get';
+    return Http(params);
+};
 
-function finance(baseURL) {
-    return function (conf) {
-        conf = conf || {};
-        return instance(Object.assign({}, {
-            url: conf.url,
-            baseURL: baseURL,
-            method: conf.method
-        }, conf.opts));
-    };
-}
-
-export {
-    finance
+export default {
+    ajax(baseURL) {
+        return function(params){
+            let host = typeof baseURL === 'function' ? baseURL() : baseURL;
+            params.opts = params.opts || {};
+            return ajax(host + params.url, {
+                data: params.opts || {},
+                ...params
+            });
+        }
+    }
 };
