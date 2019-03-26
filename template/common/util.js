@@ -11,13 +11,13 @@ const ajax = (url, params = {}) => {
 
 export default {
     ajax(baseURL) {
-        return function(params){
+        return function(params) {
             let host = typeof baseURL === 'function' ? baseURL() : baseURL;
             params.opts = params.opts || {};
             return ajax(host + params.url, {
                 data: params.opts || {},
                 ...params
             });
-        }
+        };
     }
 };
