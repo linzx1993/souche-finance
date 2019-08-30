@@ -7,6 +7,9 @@ export function <%- $$.convertUrl(o.path) %> (opts) {
         method: '<%- o.method %>',
         url: '<%- o.path %>',
         opts: opts,
+        parameters: {
+            paramType: '<%- o.parameters.length && o.parameters[0]['paramType'] || '' %>'
+        },
         res: <%- o.responseMessages[0].responseModel %>
     });
 }
