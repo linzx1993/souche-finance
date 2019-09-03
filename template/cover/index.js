@@ -1,5 +1,5 @@
 /* eslint-disable */
-import instance from './instance';
+import Util from '../util';
 let domain = process.env.MUJI_APP_CHORD_URL;
 let instance = Util.finance(domain);
 
