@@ -1,5 +1,7 @@
 /* eslint-disable */
 import instance from './instance';
+let domain = process.env.MUJI_APP_CHORD_URL;
+let instance = Util.finance(domain);
 
 <% _.forEach(data.list, function(o){ %> /** <%- o.summary %> */
 export function <%- $$.convertUrl(o.path) %> (opts) {
